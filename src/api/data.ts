@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "https://fake-users-backend-bdf0d6c4d589.herokuapp.com/data";
+const API_URL = "http://localhost:8000/data";
 
 export interface Data {
   Number: number;
