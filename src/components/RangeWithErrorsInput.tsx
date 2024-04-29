@@ -13,7 +13,7 @@ const RangeWithErrorsInput = observer(() => {
 
   const handleErrorValue = (event: React.ChangeEvent<HTMLInputElement>) => {
     const value = parseFloat(event.target.value);
-    const newValue = Math.min(Math.max(value, 0), 1000);
+    const newValue = isNaN(value) ? 0 : Math.min(Math.max(value, 0), 1000);
 
     DataStore.setErrorValue(newValue);
   };
@@ -27,7 +27,7 @@ const RangeWithErrorsInput = observer(() => {
           <Form.Range
             min={0}
             max={10}
-            step={0.1}
+            step={0.01}
             value={DataStore.rangeErrorValue}
             onChange={handleRangeErrorValueChange}
           />
